@@ -321,6 +321,7 @@ function Detail({ house:h, onUpdate, onUpdateHouse, onToggleBonus, onArchive, on
                   {isC&&set&&<Badge color="green">SCHEDULED</Badge>}
                   {days!==null&&set&&<span style={{...S.dPill,color:days<0?'#f87171':days<=7?'#f59e0b':'#60a5fa'}}>{days<0?`${Math.abs(days)}d ago`:days===0?'TODAY':`${days}d`}</span>}
                   <input type="date" value={val} onChange={e=>onUpdate(m.key,e.target.value)} style={S.dIn} />
+                  {set&&<button style={S.clearBtn} onClick={()=>onUpdate(m.key,'')} title="Clear date">✕</button>}
                 </div>
                 {isW&&(
                   <div style={{display:'flex',alignItems:'center',gap:6}}>
@@ -572,6 +573,7 @@ const S = {
   mR:      {display:'flex',alignItems:'center',gap:6,flexShrink:0},
   dPill:   {fontSize:9,fontWeight:700,letterSpacing:'0.06em'},
   dIn:     {backgroundColor:'#0d1117',border:'1px solid #2d3344',borderRadius:4,color:'#f3f4f6',padding:'5px 8px',fontSize:11,fontFamily:"'DM Mono',monospace",width:130,colorScheme:'dark'},
+  clearBtn:{background:'none',border:'1px solid #2d3344',color:'#6b7280',borderRadius:4,width:22,height:22,fontSize:10,cursor:'pointer',fontFamily:"'DM Mono',monospace",flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center',padding:0},
   calBtn:  {display:'inline-block',backgroundColor:'rgba(167,139,250,0.15)',border:'1px solid rgba(167,139,250,0.35)',color:'#a78bfa',padding:'5px 10px',borderRadius:4,fontSize:10,fontWeight:700,letterSpacing:'0.08em',cursor:'pointer',fontFamily:"'DM Mono',monospace",whiteSpace:'nowrap',textDecoration:'none'},
   bonRow:  {backgroundColor:'#161b27',border:'1px solid #1e2535',borderRadius:6,padding:'12px 14px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:10},
   bonEl:   {borderColor:'rgba(167,139,250,0.3)',backgroundColor:'rgba(167,139,250,0.04)'},
